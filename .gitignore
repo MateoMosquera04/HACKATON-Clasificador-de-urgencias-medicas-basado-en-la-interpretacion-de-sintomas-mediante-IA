@@ -1,0 +1,27 @@
+venv/
+env/
+.env
+.idea/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Archivos de modelos grandes (generados localmente)
+models/*.pickle
+*.pickle
+
+# Datos
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Modelos (Los .pickle y la carpeta de BETO pesan GBs)
+models/*
+!models/.gitkeep
+
+# --- Streamlit ---
+.streamlit/secrets.toml

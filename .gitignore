@@ -24,3 +24,5 @@ models/*
 # --- Streamlit ---
 .streamlit/secrets.toml
 data/raw/dataset_medico_ecuador_50k.csv
+notebooks/1_obtencion_datos.ipynb
+notebooks/2_preprocesamiento_nlp.ipynb

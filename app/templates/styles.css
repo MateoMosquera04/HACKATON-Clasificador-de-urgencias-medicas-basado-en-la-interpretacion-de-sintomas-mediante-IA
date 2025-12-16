@@ -1,0 +1,58 @@
+/* Estilos personalizados para TrIAje 593 */
+
+/* Fondo general más suave */
+.stApp {
+    background-color: #f8fafc;
+}
+
+/* Estilo de la tarjeta de métricas */
+div[data-testid="stMetric"] {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+/* Botones personalizados */
+div.stButton > button {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+div.stButton > button:hover {
+    transform: scale(1.02);
+}
+
+/* Inputs más limpios */
+.stTextArea textarea {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Tarjeta de triaje */
+.triaje-card {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.triaje-card h2 {
+    color: white;
+    margin: 0;
+}
+
+.triaje-card p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Icono centrado */
+.icon-centered {
+    text-align: center;
+    font-size: 3rem;
+}

@@ -48,3 +48,15 @@ STOPWORDS_EXCEPTIONS = {
 VOCAB_SIZE = None       # Número máximo de palabras/bigramas a aprender
 NGRAM_RANGE = (1, 2)    # Usar palabras sueltas y pares de palabras
 MIN_DF = 3              # Ignorar palabras que aparezcan en menos de 3 documentos
+
+# ==========================================
+# 3. CONFIGURACIÓN DE RECONOCIMIENTO DE VOZ
+# ==========================================
+# Idioma para transcripción de audio
+VOICE_LANGUAGE = "es-ES"  # Español de España
+# Umbral de energía para detección de voz
+VOICE_ENERGY_THRESHOLD = 4000
+# Usar umbral dinámico
+VOICE_DYNAMIC_THRESHOLD = True
+# Duración de ajuste al ruido ambiental (segundos)
+VOICE_AMBIENT_DURATION = 0.5

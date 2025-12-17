@@ -87,7 +87,7 @@ st.markdown("Identificación automática de especialidades y nivel de urgencia m
 # Si no hay modelo, detenemos la app visualmente
 if not model:
     st.warning(
-        "⚠️ **Atención:** Debes entrenar el modelo antes de usar la app. Ejecuta `python src/train.py` en tu terminal.")
+        "**Atención:** Debes entrenar el modelo antes de usar la app. Ejecuta `python src/train.py` en tu terminal.")
     st.stop()
 
 # Área de entrada de texto
@@ -101,7 +101,7 @@ with col_input:
     # Label con micrófono integrado
     col_label, col_mic = st.columns([10, 1])
     with col_label:
-        st.markdown("#### 📝 Descripción del Caso")
+        st.markdown("#### Descripción del Caso")
     with col_mic:
         # Componente de grabación de audio compacto
         audio_bytes = audio_recorder(
@@ -115,7 +115,7 @@ with col_input:
     # Procesar el audio cuando esté disponible
     if audio_bytes:
         # Convertir audio a texto usando el módulo de voice_recognition
-        with st.spinner("🔄 Transcribiendo audio..."):
+        with st.spinner("Transcribiendo audio..."):
             success, texto_transcrito, error_msg = transcribe_audio(audio_bytes)
             
             if success:
@@ -124,13 +124,13 @@ with col_input:
                     st.session_state.texto_completo, 
                     texto_transcrito
                 )
-                st.success(f"✅ Transcrito correctamente")
+                st.success(f"Transcrito correctamente")
             else:
                 # Mostrar el error apropiado
                 if "no se pudo entender" in error_msg.lower():
-                    st.warning(f"⚠️ {error_msg}")
+                    st.warning(f"{error_msg}")
                 else:
-                    st.error(f"❌ {error_msg}")
+                    st.error(f"{error_msg}")
     
     # Área de texto editable
     texto_input = st.text_area(
@@ -147,9 +147,9 @@ with col_input:
     # Botones de acción
     col_btn_1, col_btn_2 = st.columns([2, 4])
     with col_btn_1:
-        analizar = st.button("🔍 Analizar", type="primary", use_container_width=True)
+        analizar = st.button("Analizar", type="primary", use_container_width=True)
     with col_btn_2:
-        if st.button("🗑️ Limpiar todo", type="secondary", use_container_width=True):
+        if st.button("Limpiar todo", type="secondary", use_container_width=True):
             st.session_state.texto_completo = ""
             st.rerun()
             st.rerun()
@@ -157,7 +157,7 @@ with col_input:
 with col_help:
     st.markdown("#### ❓ ¿Cómo describir los síntomas?")
     st.markdown("""
-    **✍️ Escribiendo:**
+    **Escribiendo:**
     - Sé lo más detallado posible
     - Incluye duración, intensidad y factores asociados
     
@@ -177,7 +177,7 @@ with col_help:
 # Lógica de Análisis
 if analizar and texto_input:
     if len(texto_input) < 10:
-        st.warning("⚠️ La descripción es demasiado breve para un diagnóstico fiable.")
+        st.warning("La descripción es demasiado breve para un diagnóstico fiable.")
     else:
         # Procesamiento
         with st.spinner('Analizando terminología clínica...'):
@@ -193,7 +193,7 @@ if analizar and texto_input:
 
         # --- SECCIÓN DE RESULTADOS ---
         st.divider()
-        st.subheader("📋 Resultados del Análisis")
+        st.subheader(" Resultados del Análisis")
 
         # Columnas para métricas
         col_res_1, col_res_3 = st.columns([2, 2])
@@ -229,7 +229,7 @@ if analizar and texto_input:
         derivacion = calcular_derivacion(triaje['nivel'], especialidad_pred)
 
         # --- TARJETA DE DERIVACIÓN ---
-        st.subheader("🗺️ Ruta de Derivación Sugerida")
+        st.subheader("Ruta de Derivación Sugerida")
 
         with st.container(border=True):
             col_icon, col_text = st.columns([1, 5])

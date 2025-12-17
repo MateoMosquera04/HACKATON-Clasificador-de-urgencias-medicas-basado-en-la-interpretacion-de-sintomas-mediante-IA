@@ -18,6 +18,7 @@ from src.voice_recognition import transcribe_audio, append_text
 
 # --- FUNCIONES AUXILIARES DE TEMPLATES ---
 TEMPLATES_DIR = Path(__file__).parent / "templates"
+ASSETS_DIR = Path(__file__).parent / "assets"
 
 def load_template(filename: str) -> str:
     """Carga un template HTML/CSS."""
@@ -34,7 +35,7 @@ def load_css() -> str:
 # --- CONFIGURACIÓN DE LA PÁGINA ---
 st.set_page_config(
     page_title="TrIAje 593",
-    page_icon="🏥",
+    page_icon="assets/favicon.ico",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -64,7 +65,8 @@ model, le = load_models()
 
 # 1. SIDEBAR (Barra Lateral)
 with st.sidebar:
-    st.title("🏥 TrIAje 593")
+    st.image(str(ASSETS_DIR / "logo.png"), width=100)
+    st.title("Bienvenido")
     st.markdown("Sistema de Clasificación Médica")
     st.divider()
 
